@@ -131,4 +131,4 @@ Lightsaver/
 RN7.1/
 
 *.lock
-*keystore
+*.keystore
