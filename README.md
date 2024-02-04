@@ -12,7 +12,7 @@ Welcome, this is our project for Encode x LightLink Gasless Hackathon.
 
 # IMPORTANT!
 
-### Bounties Applied (FAST LINKS):
+### Bounties we applied for (FAST LINKS):
 - [Build a non-custodial wallet with a savings feature bounty](#savings-features)
 -  [LightLink Deployment & Blockscout Interactions](#blockscout-interactions)
 
@@ -28,6 +28,11 @@ Wallet RN Project: [LINK](./LightsaverRN/)
 
 # Introduction and Problem
 
+Hello everyone we are team Lightsaver and this is our project for encode’s Lightlink hackathon
+
+The DeFi world and certain projects such as uniswap and certain L2s have proven to be resilient and a decentralized way to Borrow, lend and earn.. However, to achieve widespread adoption, it must cater to everyday consumers, including major retailers and mom-and-pop shops. And at the same time offer something more to these users. And what's better than offering a straightforward way to save while you pay and transact. Lightlink as a premier L2 can make this happen, we would just have to hack it and develop it.
+
+<img src="https://s.yimg.com/ny/api/res/1.2/m__4g1zhzQesgnVMlbQjvw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://media.zenfs.com/en-US/gobankingrates_644/5835d0ef87f539d5cbc82448997dcb35">
 
 
 # Solution
