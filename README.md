@@ -132,7 +132,7 @@ Por ultimo la Wallet realiza un registro en el contrato de los NFTs para poder p
 
 Por parte de nuestra UI tenemos varios controles para poder personalizar la exeriencia de la cuenta de ahorros, como encender y apagar la funcion de ahorros o realizar el automint de el weekely NFT.
 
-[Interface Code](./LightsaverRN/src/screens/main/tabs/tab2.js)
+[App Code](./LightsaverRN/src/screens/main/tabs/tab2.js)
 
 <img src="https://i.ibb.co/kXnrWW3/Screenshot-20240130-155229.png" width="32%"> 
 
