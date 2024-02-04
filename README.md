@@ -241,7 +241,7 @@ NFT Implementation: The advantages of using an NFT instead of a traditional cont
 
 - At the Front End level it allows us to personalize the card and improve the user experience.
 
-  <img src="https://ipfs.io/ipfs/bafybeiaqbrwfzqvv5g3jn65sl67drincntk3i2j3ipcf3mtsgafesfpxxe/card-front.png">
+  <img src="https://i.ibb.co/Rcfxw8Z/image.png">
 
 - NFC Card Payment:
   - To make payments through NFC of the contract we must make a call to our payment API, since this is combined with the Stripe interface to be able to make TradFi payments, this is done in the cloud through an AWS Lambda.
