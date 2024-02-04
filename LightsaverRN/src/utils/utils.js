@@ -235,3 +235,43 @@ export function formatInputText(inputText) {
     }
   }
 }
+
+export async function getBalanceAPI(address) {
+  var myHeaders = new Headers();
+  myHeaders.append('accept', 'application/json');
+
+  var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow',
+  };
+  return new Promise((resolve, reject) => {
+    fetch(
+      `https://phoenix.lightlink.io/api/v2/addresses/${address}?apikey=${LIGHTLINK_API_KEY}`,
+      requestOptions,
+    )
+      .then(response => response.json())
+      .then(result => resolve(result.coin_balance))
+      .catch(error => reject(error));
+  });
+}
+
+export async function getTokensAPI(address) {
+  var myHeaders = new Headers();
+  myHeaders.append('accept', 'application/json');
+
+  var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow',
+  };
+  return new Promise((resolve, reject) => {
+    fetch(
+      `https://phoenix.lightlink.io/api/v2/addresses/${address}/tokens?type=ERC-20?apikey=${LIGHTLINK_API_KEY}`,
+      requestOptions,
+    )
+      .then(response => response.json())
+      .then(result => resolve(result.coin_balance))
+      .catch(error => reject(error));
+  });
+}

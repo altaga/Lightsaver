@@ -279,6 +279,52 @@ Furthermore, the API does not allow better integration with any system since we 
 
 <img src="https://i.ibb.co/hcR2T6G/image.png"> 
 
+The technical implementation of these API calls.
+
+[CODE](./LightsaverRN/src/utils/utils.js)
+
+Code used to obtain native and token balances.
+
+    export async function getBalanceAPI(address) {
+    var myHeaders = new Headers();
+    myHeaders.append('accept', 'application/json');
+
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow',
+    };
+    return new Promise((resolve, reject) => {
+        fetch(
+        `https://phoenix.lightlink.io/api/v2/addresses/${address}?apikey=${LIGHTLINK_API_KEY}`,
+        requestOptions,
+        )
+        .then(response => response.json())
+        .then(result => resolve(result.coin_balance))
+        .catch(error => reject(error));
+    });
+    }
+
+    export async function getTokensAPI(address) {
+    var myHeaders = new Headers();
+    myHeaders.append('accept', 'application/json');
+
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow',
+    };
+    return new Promise((resolve, reject) => {
+        fetch(
+        `https://phoenix.lightlink.io/api/v2/addresses/${address}/tokens?type=ERC-20?apikey=${LIGHTLINK_API_KEY}`,
+        requestOptions,
+        )
+        .then(response => response.json())
+        .then(result => resolve(result.coin_balance))
+        .catch(error => reject(error));
+    });
+    }
+
 # Team
 
 #### 3 Engineers with experience developing IoT and hardware solutions. We have been working together now for 5 years since University.
