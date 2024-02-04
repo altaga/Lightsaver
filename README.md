@@ -2,7 +2,7 @@
 
 # Lightsaver
 
-Lightsaver, the sleek wallet designed for the LightLink network, combines cutting-edge security, multi-asset support, and intelligent savings features to offer a user-friendly and comprehensive solution for managing and growing your crypto portfolio.
+Lightsaver, a sleek wallet designed for the LightLink network, combines cutting-edge security, multi-asset support, and intelligent savings features to offer a user-friendly and comprehensive solution for managing and growing your crypto portfolio.
 
 <img src="https://i.ibb.co/RHKNnFQ/lightsaver-Logo.png" width="50%">
 
@@ -24,7 +24,7 @@ Wallet RN Project: [LINK](./LightsaverRN/)
 
 ## Here is our main demo video:
 
-[![Demo](https://i.ibb.co/g4W3ypx/image.png)](pending...)
+[![Demo](https://i.ibb.co/g4W3ypx/image.png)](https://youtu.be/OgiHJO-_ZCA)
 
 # Introduction and Problem
 
@@ -44,38 +44,38 @@ System's Architecture:
 
 -  Through [Stripe APIs](https://stripe.com/docs/api) debit card checkouts and virtual accounts.
 
-- Todo el diseño del los smart contracts se realizo en [RemixIDE](https://remix.ethereum.org/) y las librerias de [Chainlink](https://github.com/smartcontractkit/chainlink) y [Openzeppelin](https://www.openzeppelin.com/contracts).
+- The entire design of the smart contracts was carried out in [RemixIDE](https://remix.ethereum.org/) and with the libraries from [Chainlink](https://github.com/smartcontractkit/chainlink) and [Openzeppelin](https://www.openzeppelin.com/contracts).
 
-Nuestra dapp cuenta con las funciones fundamentales de cualquier web3 wallet, tales como asset management y la visualización de NFTs. Sin embargo, la característica de ahorros permite guardar una pequeña cantidad de dinero cada vez que lleva a cabo una transacción. Como recompensa por sus esfuerzos de ahorro, los usuarios recibirán un NFT semanalmente. Ademas poodras disponer de tus assets en cualquier momento mediante nuestro sistema de pagos con NFT Card, la cual podra ser usada para realizar pagos entre lightlink wallets.
+Our dapp has the fundamental functions of any web3 wallet, such as asset management and the visualization of NFTs. However, the savings feature allows you to save a small amount of money each time you make a transaction. As a reward for their savings efforts, users will receive an NFT weekly. You can also access your assets at any time through our NFT Card payment system, which can be used to make payments between lightlink wallets.
 
 # Main Screens:
 
 <img src="https://i.ibb.co/2yXp1kC/vlcsnap-2024-02-03-23h22m43s030.png" width="32%"> <img src="https://i.ibb.co/qj46w9q/Screenshot-20240130-155239.png" width="32%"> <img src="https://i.ibb.co/jJMJmTh/Screenshot-20240130-155244.png" width="32%">
 
-- La pantalla principal tiene como funcion visualizar los assets en la wallet, su tipo de cambio en dolares y proveer los controles de mandar y recibir.
+- The main screen has the function of viewing the assets in the wallet, their exchange rate in dollars and providing send and receive controls.
 
-- A su vez la wallet no provee una sencilla interfaz para realizar pagos de nuestra wallet a cualquier otra wallet compatible con Lightlink.
+- At the same time, the wallet does not provide a simple interface to make payments from our wallet to any other wallet compatible with Lightlink.
 
-- A su vez podemos recibir ETH o cualquier otro token nativo en la red de LightLink, ya sea directamente en nuestra address o en la cuenta de savings que veremos en la siguiente seccion.
+- In turn, we can receive ETH or any other native token on the LightLink network, either directly to our address or to the savings account that we will see in the next section.
 
 # Savings Features:
 
-Las funciones de savings en nuestra wallet tienen como fin lograr que el usuario ahorre con cada transaccion que realice en la wallet de forma personalizable. Por esto primero explicaremos como funciona el smart contract de la cuenta de savings.
+The savings functions in our wallet are intended to ensure that the user saves with each transaction made in the wallet in a customizable way. For this reason, we will first explain how the savings account smart contract works.
 
 ## Smart Contract:
 
-Lo primero y mas importante es el uso de un smart contract que sirva como wallet de ahorros, parecido a una smart contract wallet, la cual nos permite recibir cualquier tipo de asset.
+The first and most important thing is the use of a smart contract that serves as a savings wallet, similar to a smart contract wallet, which allows us to receive any type of asset.
 
 * [Smart Contract](./Contracts/SaverAccount.sol)
 * [Deployment Example](https://phoenix.lightlink.io/address/0x74c26425961A3CF6f0551767D88Cc21F365CB639)
 
-Primero el contrato debe de ser capaz de recibir cualquier tipo de Assets, ya sea ETH, ERC20 Tokens y NFTs. Asi que se implementaron las siguientes funciones fallback para ello.
+First, the contract must be capable of receiving any type of Assets, be it ETH, ERC20 Tokens and NFTs. So the following fallback functions were implemented for this.
 
     receive() external payable {} // Recieve Deposits
 
     fallback() external payable {} // Recieve Deposits if recieve doesn't work
 
-Ahora se debe de poder realizar retiros desde el contrato a nuestra wallet, asi que se implementaron las funciones de transfer para cada asset.
+Now it should be possible to make withdrawals from the contract to our wallet, so the transfer functions have been implemented for each asset.
 
     function transferNative(uint256 value, address payable to)
         public
@@ -105,7 +105,7 @@ Ahora se debe de poder realizar retiros desde el contrato a nuestra wallet, asi 
         ERC721Contract.transferFrom(address(this), to, 0);
     }
 
-Por ultimo al ser una cuenta de savings tenemos que configurar funciones de tiempo, donde el usuario solo pueda sacar los fondos de la wallet despues de un tiempo determinado.
+Finally, since it is a savings account, we have to configure time functions, where the user can only withdraw funds from the wallet after a certain time.
 
     // Utilities
     function timestamp() private view returns (uint256) {
@@ -116,7 +116,7 @@ Por ultimo al ser una cuenta de savings tenemos que configurar funciones de tiem
         return (period <= (timestamp() - startDate));
     }
 
-Por ultimo la Wallet realiza un registro en el contrato de los NFTs para poder proveerle de un NFT con su balance en savings cada, semana.
+Finally, the Wallet makes a record in the NFT contract to be able to provide you with an NFT with your savings balance every week.
 
 * [Smart Contract](./Contracts/SaverNFT.sol)
 * [Deployment Example](https://phoenix.lightlink.io/token/0x8Da0bb16b869EE966bcF00aef7db9bEaA67eE511)
@@ -130,23 +130,23 @@ Por ultimo la Wallet realiza un registro en el contrato de los NFTs para poder p
 
 ## Features and Strategies:
 
-Por parte de nuestra UI tenemos varios controles para poder personalizar la exeriencia de la cuenta de ahorros, como encender y apagar la funcion de ahorros o realizar el automint de el weekely NFT.
+On the part of our UI we have several controls to customize the savings account experience, such as turning the savings function on and off or autominting the weekly NFT.
 
 [App Code](./LightsaverRN/src/screens/main/tabs/tab2.js)
 
-Nuestra UI implementa todos los controles desde la misma tab con el fin de facilitar al usuario la configuracion de su cuenta de ahorros.
+Our UI implements all the controls from the same tab in order to make it easier for the user to configure their savings account.
 
 <img src="https://i.ibb.co/kXnrWW3/Screenshot-20240130-155229.png" width="32%"> 
 
-Uno de los controles mas importates de nuestra wallet es poder cambiar a nivel de smart contract el periodo de savings, el cual puede ser diario, semanal, mensual o anual.
+One of the most important controls of our wallet is to be able to change the savings period at the smart contract level, which can be daily, weekly, monthly or annually.
 
 <img src="https://i.ibb.co/9rwSVrg/vlcsnap-2024-02-03-23h23m14s888.png" width="32%">
 
-Otro de los controles importantes de la savings account es el protocolo de ahorros, el cual por ahora esta basado en dos estrategias principales, balanceado y porcentual.
+Another important control of the savings account is the savings protocol, which for now is based on two main strategies, balanced and percentage.
 
 <img src="https://i.ibb.co/DpYXpgg/vlcsnap-2024-02-03-23h23m21s258.png" width="32%"> 
 
-- Protocolo Balanceado, este protocolo realiza un redondeo ponderado segun la cantidad que se vaya a pagar en la transaccion, de forma que a mayor sea la transaccion, el ahorro sea mayor, con el fin de no afectar al usuario.
+- Balanced Protocol, this protocol performs a weighted rounding according to the amount to be paid in the transaction, so that the larger the transaction, the greater the savings, in order not to affect the user.
 
         export function balancedSavingToken(number, usd1, usd2) {
         // this function can be improved
@@ -176,7 +176,7 @@ Otro de los controles importantes de la savings account es el protocolo de ahorr
         return new Decimal(amount).sub(new Decimal(balance)).div(usd2).toNumber();
         }
 
-- Protocolo porcentual, a diferencia del protocolo anterior este tiene como fin ahorrar siempre un porcentaje seleccionado en la UI.
+- Percentage protocol, unlike the previous protocol, this one aims to always save a percentage selected in the UI.
 
         export function percentageSaving(number, percentage) {
         return number * (percentage / 100);
@@ -192,13 +192,13 @@ This NFT Smart Contract Card integrates an abstraction wallet and NFT, providing
 
 * [Deployment Example](https://phoenix.lightlink.io/token/0x531bBf90b1f691DB2CFe361fE2e8E30E7e77CDe1)
 
-Primero el contrato debe de ser capaz de recibir cualquier tipo de Assets, ya sea ETH, ERC20 Tokens y NFTs. Asi que se implementaron las siguientes funciones fallback para ello.
+First, the contract must be capable of receiving any type of Assets, be it ETH, ERC20 Tokens and NFTs. So the following fallback functions were implemented for this.
 
     receive() external payable {} // Recieve Deposits
 
     fallback() external payable {} // Recieve Deposits if recieve doesn't work
 
-Ahora se debe de poder realizar retiros desde el contrato a nuestra wallet, asi que se implementaron las funciones de transfer para cada asset.
+Now it should be possible to make withdrawals from the contract to our wallet, so the transfer functions have been implemented for each asset.
 
     function transferNative(uint256 value, address payable to)
         public
@@ -228,7 +228,7 @@ Ahora se debe de poder realizar retiros desde el contrato a nuestra wallet, asi 
         ERC721Contract.transferFrom(address(this), to, 0);
     }
 
-NFT Implementation: The advantages of using an NFT instead of a traditional contract is being able to have the card data publicly available and being able to make payments at the terminal more easily.
+NFT Implementation: The advantages of using an NFT instead of a traditional contract is being able to have the card data publicly available and being able to make easier terminal payments.
 
 - Card Metadata Example:
 
@@ -241,7 +241,7 @@ NFT Implementation: The advantages of using an NFT instead of a traditional cont
 - Reading a VISA and Mastercard card are different at the code level.
   - [Read NFC Card Code](./LightsaverRN/src/screens/cardPayment/components/readCard.js)
 
-- At the Front End level it allows us to personalize the card and improve the user experience.
+- At the Front End level it allows us to personalize the card and improve user experience.
 
   <img src="https://i.ibb.co/Rcfxw8Z/image.png">
 
@@ -252,25 +252,25 @@ NFT Implementation: The advantages of using an NFT instead of a traditional cont
 
 ## Deposit and Withdraw:
 
-Dentro de nuestra UI podemos ver los controles de como agregar y quitarle dinero a nuestra tarjeta, solo el dinero que este en la tarjeta podra ser usado para realizar pagos.
+Within our UI we can see the controls on how to add and remove money from our card, only the money that is on the card can be used to make payments.
 
 <img src="https://i.ibb.co/8M3655N/vlcsnap-2024-02-03-23h23m27s257.png" width="32%"> 
 
-En el caso de los pagos entre wallets solo es necesario que el celular o POS tenga un lector NFC, posteriormente pongamos la cantidad a pagar y esperar a que se hacerque la tarjeta al lector.
+In the case of payments between wallets, it is only necessary that the cell phone or POS has an NFC reader, then we enter the amount to pay and wait for the card to be placed on the reader.
 
 <img src="https://i.ibb.co/vq1H3Xb/vlcsnap-2024-02-03-23h22m43s030-1.png" width="32%"> <img src="https://i.ibb.co/pjQwcpD/vlcsnap-2024-02-04-00h07m37s498.png" width="32%"> <img src="https://i.ibb.co/k4NS8Zv/vlcsnap-2024-02-04-00h07m43s579.png" width="32%"> 
 
-Ya que nuestras tarjetas son duales, crypto y tradfi, tendremos que seleccionar el protocolo de pago, en este caso seleciconaremos ETH y una vez realizada la tranaccion podremos ver el pago en el explorer.
+Since our cards are dual, crypto and tradfi, we will have to select the payment protocol, in this case we will select ETH and once the transaction is completed we will be able to see the payment in the explorer.
 
 <img src="https://i.ibb.co/jWtqRzG/vlcsnap-2024-02-04-00h07m46s631.png" width="32%"> <img src="https://i.ibb.co/BCRSDXJ/vlcsnap-2024-02-04-00h07m52s271.png" width="32%"> <img src="https://i.ibb.co/T4v5jHQ/vlcsnap-2024-02-04-00h07m58s702.png" width="32%"> 
 
 # Blockscout Interactions:
 
-Blockscount ademas de ser el explorer principal de nuestro proyecto, gracias a la watch list podemos tener un mejor control de las wallets y asi poder mandar a los usuarios correos cada vez que se realiza una transaccion.
+Blockscount, in addition to being the main explorer of our project, thanks to the watch list we can have better control of the wallets and thus be able to send users emails every time a transaction is made.
 
 <img src="https://i.ibb.co/LxmCSqN/image.png"> 
 
-Ademas la API no permite una mejor intgracion con cualquier sistema ya que no ocupamos ningun modulo como lo es Ethers.
+Furthermore, the API does not allow better integration with any system since we do not use any module such as Ethers.
 
 <img src="https://i.ibb.co/hcR2T6G/image.png"> 
 
@@ -286,3 +286,5 @@ Ademas la API no permite una mejor intgracion con cualquier sistema ya que no oc
 
 ## References:
 
+https://finance.yahoo.com/news/58-americans-less-1-000-090000503.html
+https://www.statista.com/chart/31435/household-savings-rate-in-selected-oecd-countries/
