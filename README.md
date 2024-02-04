@@ -134,6 +134,8 @@ Por parte de nuestra UI tenemos varios controles para poder personalizar la exer
 
 [App Code](./LightsaverRN/src/screens/main/tabs/tab2.js)
 
+Nuestra UI implementa todos los controles desde la misma tab con el fin de facilitar al usuario la configuracion de su cuenta de ahorros.
+
 <img src="https://i.ibb.co/kXnrWW3/Screenshot-20240130-155229.png" width="32%"> 
 
 Uno de los controles mas importates de nuestra wallet es poder cambiar a nivel de smart contract el periodo de savings, el cual puede ser diario, semanal, mensual o anual.
