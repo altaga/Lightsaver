@@ -18,6 +18,8 @@ Welcome, this is our project for Encode x LightLink Gasless Hackathon.
 
 ## Application:
 
+Wallet Playstore: https://play.google.com/store/apps/details?id=com.altaga.lightsaver
+
 Wallet APK: [LINK](./LightsaverAPK/app-release.apk)
 
 Wallet RN Project: [LINK](./LightsaverRN/)
