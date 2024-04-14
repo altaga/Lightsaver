@@ -3,7 +3,7 @@
 
 # System Diagram :
 
-<img src="https://i.ibb.co/Lx9PQ9J/scheme-New-drawio.png">
+<img src="https://i.ibb.co/8cvsX01/Scheme-New-drawio.png">
 
 Todo el esquema explica todos los flujos de datos y servicios que tiene nuestra app, aunque ambiscioso, esta provee los siguientes servicios.
 
